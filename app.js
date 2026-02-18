@@ -92,7 +92,7 @@ function getColorForLetters(letters) {
   }
 
   const index = Math.abs(hash) % colors.length;
-  return colors[index] || "#6e34cf";
+  return colors[index] || "#0F766E";
 }
 
 // Create chips for words in a label
@@ -344,7 +344,7 @@ function render() {
   if (bookmarks.length === 0) {
     let emptyDiv = document.createElement("div");
     emptyDiv.style.textAlign = "center";
-    emptyDiv.style.color = "#999";
+    emptyDiv.style.color = "#475569";
     emptyDiv.style.fontStyle = "italic";
     emptyDiv.style.padding = "20px";
     emptyDiv.textContent = "No tokens stored";
@@ -382,7 +382,7 @@ function render() {
         <div class="bookmark-header" onclick="copyToClipboard('${
           bookmark.token
         }', '${bookmark.uid}')">
-          ${tokenTile}<span>${labelChips} <small style="color: #666;">(${bookmark.clickCount})</small></span>
+          ${tokenTile}<span>${labelChips} <small style="color: #475569;">(${bookmark.clickCount})</small></span>
         </div>
         <button class="copy-icon-btn" onclick="copyToClipboard('${
           bookmark.token
@@ -512,7 +512,7 @@ function toggleTokenVisibility(cleanKey, token) {
   let urlElement = document.getElementById(`token-${cleanKey}`);
 
   if (urlElement.classList.contains("url-hidden")) {
-    urlElement.innerHTML = `${token} <small style="color: #999;">(Click to hide)</small>`;
+    urlElement.innerHTML = `${token} <small style="color: #475569;">(Click to hide)</small>`;
     urlElement.classList.remove("url-hidden");
     urlElement.onclick = function (e) {
       e.preventDefault();

@@ -25,9 +25,9 @@ body {
     Cantarell, sans-serif;
   margin: 0;
   padding: 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #F7F9FC;
   min-height: 100vh;
-  color: #333;
+  color: #0F172A;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,16 +37,15 @@ h1 {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
-  color: white;
+  color: #0F172A;
   margin: 20px 0 30px 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
   text-align: center;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #6e34cf;
+  color: #0F766E;
   margin: 25px 0 15px 0;
 }
 
@@ -62,7 +61,7 @@ h2 {
 #login p {
   font-size: 1.1rem;
   margin-bottom: 20px;
-  color: #555;
+  color: #475569;
 }
 
 #app {
@@ -77,22 +76,22 @@ input {
   width: 100%;
   padding: 16px;
   margin: 8px 0;
-  border: 2px solid #e1e5e9;
+  border: 2px solid #E2E8F0;
   border-radius: 12px;
   font-size: 16px;
   transition: border-color 0.3s ease;
   -webkit-appearance: none;
   appearance: none;
   background: white;
-  color: #333;
+  color: #0F172A;
   /* Prevent zoom on iOS */
   transform: scale(1);
 }
 
 input:focus {
   outline: none;
-  border-color: #6e34cf;
-  box-shadow: 0 0 0 3px rgba(110, 52, 207, 0.1);
+  border-color: #0F766E;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.1);
 }
 
 /* Fix for iOS input styling */
@@ -105,14 +104,14 @@ button {
   padding: 16px;
   margin-top: 12px;
   border: none;
-  background: #6e34cf;
+  background: #0F766E;
   color: white;
   border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(110, 52, 207, 0.3);
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.3);
   -webkit-appearance: none;
   appearance: none;
   /* Prevent tap highlight */
@@ -125,14 +124,14 @@ button {
 }
 
 button:hover {
-  background: #5d2ba7;
+  background: #0B5F59;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(110, 52, 207, 0.4);
+  box-shadow: 0 6px 16px rgba(15, 118, 110, 0.4);
 }
 
 button:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 8px rgba(110, 52, 207, 0.3);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
 }
 
 /* Prevent button text selection */
@@ -143,11 +142,11 @@ button {
 }
 
 .bookmark {
-  background: #f8f9fa;
+  background: #FFFFFF;
   margin: 5px 0;
   padding: 5px 16px;
   border-radius: 12px;
-  border: 1px solid #e9ecef;
+  border: 1px solid #E2E8F0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 }
@@ -162,7 +161,7 @@ button {
   justify-content: space-between;
   font-size: 1.1rem;
   margin-bottom: 8px;
-  color: #333;
+  color: #0F172A;
   word-break: break-word;
 }
 
@@ -185,7 +184,7 @@ button {
 }
 
 .copy-icon-btn {
-  background: #28a745;
+  background: #0E9F6E;
   border: none;
   border-radius: 6px;
   padding: 8px;
@@ -197,20 +196,20 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
+  box-shadow: 0 2px 6px rgba(14, 159, 110, 0.3);
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
 }
 
 .copy-icon-btn:hover {
-  background: #218838;
+  background: #0B8A5E;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+  box-shadow: 0 4px 10px rgba(14, 159, 110, 0.4);
 }
 
 .copy-icon-btn:active {
   transform: translateY(1px);
-  box-shadow: 0 1px 4px rgba(40, 167, 69, 0.3);
+  box-shadow: 0 1px 4px rgba(14, 159, 110, 0.3);
 }
 
 .copy-icon {
@@ -240,7 +239,7 @@ button {
 }
 
 .word-chip {
-  background-color: #6e34cf;
+  background-color: #0F766E;
   color: white;
   padding: 3px 8px;
   margin: 2px;
@@ -253,7 +252,7 @@ button {
 .bookmark a {
   display: block;
   text-decoration: none;
-  color: #6e34cf;
+  color: #0F766E;
   font-size: 0.9rem;
   margin-bottom: 15px;
   word-break: break-all;
@@ -263,11 +262,11 @@ button {
 }
 
 .bookmark a:hover {
-  color: #5d2ba7;
+  color: #0B5F59;
 }
 
 .bookmark .url-hidden {
-  color: #999;
+  color: #475569;
   font-style: italic;
 }
 
@@ -294,38 +293,38 @@ button {
 }
 
 .bookmark .bookmark-actions .delete-link {
-  color: #dc3545;
+  color: #D92D20;
 }
 
 .bookmark .bookmark-actions .delete-link:hover {
-  color: #c82333;
+  color: #B91C1C;
   text-decoration: underline;
 }
 
 .bookmark .bookmark-actions .toggle-link {
-  color: #6c757d;
+  color: #475569;
 }
 
 .bookmark .bookmark-actions .toggle-link:hover {
-  color: #5a6268;
+  color: #334155;
   text-decoration: underline;
 }
 
 .bookmark button {
   width: 100%;
-  background: #6e34cf;
+  background: #0F766E;
   margin-top: 8px;
   padding: 12px;
   font-size: 14px;
-  box-shadow: 0 2px 8px rgba(110, 52, 207, 0.3);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.3);
 }
 
 .bookmark button:hover {
-  background: #5d2ba7;
+  background: #0B5F59;
 }
 
 .bookmark button:active {
-  background: #4c2085;
+  background: #094F4A;
 }
 
 .action-buttons {
@@ -336,20 +335,20 @@ button {
 }
 
 #logout {
-  background: #dc3545;
-  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+  background: #D92D20;
+  box-shadow: 0 4px 12px rgba(217, 45, 32, 0.3);
 }
 
 #logout:active {
-  background: #c82333;
+  background: #B91C1C;
 }
 
 .add-form {
-  background: #f8f9fa;
+  background: #FFFFFF;
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 25px;
-  border: 1px solid #e9ecef;
+  border: 1px solid #E2E8F0;
 }
 
 .clear-data {
@@ -358,7 +357,7 @@ button {
 }
 
 .clear-data a {
-  color: #dc3545;
+  color: #D92D20;
   text-decoration: none;
   font-size: 14px;
   cursor: pointer;
@@ -379,7 +378,7 @@ button {
 
 /* Import/Export actions styling */
 .import-export-actions a:hover {
-  color: #5d2ba7 !important;
+  color: #0B5F59 !important;
   text-decoration: underline;
 }
 
@@ -394,13 +393,13 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #28a745;
+  background: #0E9F6E;
   color: white;
   padding: 16px 24px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+  box-shadow: 0 4px 12px rgba(14, 159, 110, 0.4);
   z-index: 1000;
   animation: fadeInOut 1.5s ease-in-out forwards;
   pointer-events: none;
