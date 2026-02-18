@@ -1,4 +1,4 @@
-# Patsy
+# Patsy v2
 
 Patsy is a lightweight, client-side web app for securely storing private access tokens behind a 6-digit code.
 
