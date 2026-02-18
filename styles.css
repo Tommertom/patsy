@@ -499,8 +499,8 @@ button {
   }
 
   /* Improved logo sizing for mobile */
-  .logo-container img {
-    max-height: 120px !important;
+  .logo-container > div {
+    padding: 8px 16px !important;
   }
 
   .logo-container p {
@@ -591,8 +591,8 @@ button {
     flex: none;
   }
 
-  .logo-container img {
-    max-height: 100px !important;
+  .logo-container > div {
+    padding: 6px 12px !important;
   }
 
   .logo-container p {
@@ -623,8 +623,8 @@ button {
     margin: 10px 0 15px 0 !important;
   }
 
-  .logo-container img {
-    max-height: 80px !important;
+  .logo-container > div {
+    padding: 6px 16px !important;
   }
 
   .logo-container p {
