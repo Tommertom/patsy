@@ -218,37 +218,6 @@ button {
   fill: white;
 }
 
-.domain-tile {
-  width: 64px;
-  height: 64px;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  text-transform: uppercase;
-  margin-right: 12px;
-  flex-shrink: 0;
-}
-
-.domain-tile.reddit-preview {
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-.word-chip {
-  background-color: #0F766E;
-  color: white;
-  padding: 3px 8px;
-  margin: 2px;
-  border-radius: 12px;
-  font-size: 14px;
-  display: inline-block;
-  font-weight: 500;
-}
-
 .bookmark a {
   display: block;
   text-decoration: none;
