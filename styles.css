@@ -1,0 +1,651 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent zoom on input focus on iOS */
+input,
+textarea,
+select {
+  font-size: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Prevent horizontal scrolling */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
+  margin: 0;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 20px 0 30px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #6e34cf;
+  margin: 25px 0 15px 0;
+}
+
+#login {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+  text-align: center;
+}
+
+#login p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+#app {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  margin: 8px 0;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  background: white;
+  color: #333;
+  /* Prevent zoom on iOS */
+  transform: scale(1);
+}
+
+input:focus {
+  outline: none;
+  border-color: #6e34cf;
+  box-shadow: 0 0 0 3px rgba(110, 52, 207, 0.1);
+}
+
+/* Fix for iOS input styling */
+input[type="password"] {
+  -webkit-text-security: disc;
+}
+
+button {
+  width: 100%;
+  padding: 16px;
+  margin-top: 12px;
+  border: none;
+  background: #6e34cf;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(110, 52, 207, 0.3);
+  -webkit-appearance: none;
+  appearance: none;
+  /* Prevent tap highlight */
+  -webkit-tap-highlight-color: transparent;
+  /* Ensure minimum touch target size */
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background: #5d2ba7;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(110, 52, 207, 0.4);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(110, 52, 207, 0.3);
+}
+
+/* Prevent button text selection */
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.bookmark {
+  background: #f8f9fa;
+  margin: 5px 0;
+  padding: 5px 16px;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.bookmark:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bookmark strong {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #333;
+  word-break: break-word;
+}
+
+@media (min-width: 769px) {
+  .bookmark strong {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .bookmark .copy-icon-btn {
+    margin-left: 0;
+  }
+}
+
+.bookmark-header {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.copy-icon-btn {
+  background: #28a745;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.copy-icon-btn:hover {
+  background: #218838;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+}
+
+.copy-icon-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 4px rgba(40, 167, 69, 0.3);
+}
+
+.copy-icon {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+.domain-tile {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.domain-tile.reddit-preview {
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.word-chip {
+  background-color: #6e34cf;
+  color: white;
+  padding: 3px 8px;
+  margin: 2px;
+  border-radius: 12px;
+  font-size: 14px;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.bookmark a {
+  display: block;
+  text-decoration: none;
+  color: #6e34cf;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  word-break: break-all;
+  line-height: 1.4;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.bookmark a:hover {
+  color: #5d2ba7;
+}
+
+.bookmark .url-hidden {
+  color: #999;
+  font-style: italic;
+}
+
+.bookmark .bookmark-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.bookmark .bookmark-actions a {
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 4px;
+  /* Ensure minimum touch target */
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.bookmark .bookmark-actions .delete-link {
+  color: #dc3545;
+}
+
+.bookmark .bookmark-actions .delete-link:hover {
+  color: #c82333;
+  text-decoration: underline;
+}
+
+.bookmark .bookmark-actions .toggle-link {
+  color: #6c757d;
+}
+
+.bookmark .bookmark-actions .toggle-link:hover {
+  color: #5a6268;
+  text-decoration: underline;
+}
+
+.bookmark button {
+  width: 100%;
+  background: #6e34cf;
+  margin-top: 8px;
+  padding: 12px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(110, 52, 207, 0.3);
+}
+
+.bookmark button:hover {
+  background: #5d2ba7;
+}
+
+.bookmark button:active {
+  background: #4c2085;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+#logout {
+  background: #dc3545;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+#logout:active {
+  background: #c82333;
+}
+
+.add-form {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  border: 1px solid #e9ecef;
+}
+
+.clear-data {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.clear-data a {
+  color: #dc3545;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  min-height: 32px;
+  line-height: 1;
+}
+
+.clear-data a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Import/Export actions styling */
+.import-export-actions a:hover {
+  color: #5d2ba7 !important;
+  text-decoration: underline;
+}
+
+/* Hidden file input for import */
+#import-file {
+  display: none;
+}
+
+/* Copy confirmation message */
+.copy-confirmation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #28a745;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+  z-index: 1000;
+  animation: fadeInOut 1.5s ease-in-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+/* Enhanced mobile responsiveness */
+@media (max-width: 768px) {
+  body {
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin: 15px 0 20px 0;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 20px 0 12px 0;
+  }
+
+  #login,
+  #app {
+    padding: 20px 16px;
+    margin: 12px 0;
+    border-radius: 12px;
+  }
+
+  .add-form {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  input {
+    padding: 18px 16px;
+    font-size: 16px;
+    margin: 6px 0;
+    border-radius: 8px;
+  }
+
+  button {
+    padding: 18px 16px;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+    min-height: 52px;
+  }
+
+  .bookmark {
+    padding: 5px 16px;
+    margin: 5px 0;
+    border-radius: 8px;
+  }
+
+  .bookmark button {
+    padding: 14px;
+    font-size: 15px;
+    min-height: 48px;
+  }
+
+  .bookmark .bookmark-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-top: 12px;
+  }
+
+  .bookmark .bookmark-actions a {
+    font-size: 14px;
+    padding: 8px 0;
+    flex: none;
+    text-align: left;
+  }
+
+  .action-buttons {
+    gap: 16px;
+    margin-top: 25px;
+  }
+
+  /* Improved logo sizing for mobile */
+  .logo-container img {
+    max-height: 120px !important;
+  }
+
+  .logo-container p {
+    font-size: 1rem !important;
+    margin: -15px 0 0 0 !important;
+  }
+
+  /* Better spacing for instruction box */
+  .instruction-box {
+    padding: 16px !important;
+    margin: 20px 0 !important;
+  }
+
+  .instruction-box h3 {
+    font-size: 1rem !important;
+    margin-bottom: 12px !important;
+  }
+
+  .instruction-box p {
+    font-size: 0.9rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Mobile adjustments for copy icon button */
+  .copy-icon-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 6px !important;
+  }
+
+  .copy-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  body {
+    padding: 6px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  #login,
+  #app {
+    padding: 16px 12px;
+    margin: 8px 0;
+  }
+
+  .add-form {
+    padding: 12px;
+  }
+
+  input {
+    padding: 20px 16px;
+    font-size: 16px;
+    margin: 8px 0;
+  }
+
+  button {
+    padding: 20px 16px;
+    font-size: 16px;
+    min-height: 56px;
+  }
+
+  .bookmark {
+    padding: 5px 14px;
+    margin: 5px 0;
+  }
+
+  .bookmark button {
+    padding: 16px;
+    min-height: 52px;
+  }
+
+  .bookmark .bookmark-actions {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .bookmark .bookmark-actions a {
+    text-align: left;
+    padding: 6px 0;
+    flex: none;
+  }
+
+  .logo-container img {
+    max-height: 100px !important;
+  }
+
+  .logo-container p {
+    font-size: 0.95rem !important;
+    margin: -10px 0 0 0 !important;
+  }
+
+  /* Smaller copy icon for extra small screens */
+  .copy-icon-btn {
+    width: 30px !important;
+    height: 30px !important;
+    padding: 5px !important;
+  }
+
+  .copy-icon {
+    width: 12px !important;
+    height: 12px !important;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  body {
+    padding: 4px;
+  }
+
+  .logo-container {
+    margin: 10px 0 15px 0 !important;
+  }
+
+  .logo-container img {
+    max-height: 80px !important;
+  }
+
+  .logo-container p {
+    font-size: 0.9rem !important;
+    margin: -8px 0 0 0 !important;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin: 10px 0 15px 0;
+  }
+
+  #login,
+  #app {
+    padding: 12px;
+    margin: 6px 0;
+  }
+
+  .instruction-box {
+    padding: 12px !important;
+    margin: 15px 0 !important;
+  }
+}
