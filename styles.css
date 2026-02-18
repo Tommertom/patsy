@@ -499,13 +499,12 @@ button {
   }
 
   /* Improved logo sizing for mobile */
-  .logo-container > div {
-    padding: 8px 16px !important;
+  .logo-container h1 {
+    font-size: 2rem !important;
   }
 
   .logo-container p {
-    font-size: 1rem !important;
-    margin: -15px 0 0 0 !important;
+    font-size: 0.95rem !important;
   }
 
   /* Better spacing for instruction box */
@@ -591,13 +590,12 @@ button {
     flex: none;
   }
 
-  .logo-container > div {
-    padding: 6px 12px !important;
+  .logo-container h1 {
+    font-size: 1.8rem !important;
   }
 
   .logo-container p {
-    font-size: 0.95rem !important;
-    margin: -10px 0 0 0 !important;
+    font-size: 0.9rem !important;
   }
 
   /* Smaller copy icon for extra small screens */
@@ -623,13 +621,12 @@ button {
     margin: 10px 0 15px 0 !important;
   }
 
-  .logo-container > div {
-    padding: 6px 16px !important;
+  .logo-container h1 {
+    font-size: 1.6rem !important;
   }
 
   .logo-container p {
-    font-size: 0.9rem !important;
-    margin: -8px 0 0 0 !important;
+    font-size: 0.85rem !important;
   }
 
   h1 {
