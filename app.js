@@ -14,100 +14,6 @@ function generateUID() {
   return "bm_" + Date.now() + "_" + Math.random().toString(36).substr(2, 9);
 }
 
-// Extract domain from URL
-function extractDomain(url) {
-  try {
-    // Add protocol if missing
-    if (!url.startsWith("http://") && !url.startsWith("https://")) {
-      url = "https://" + url;
-    }
-    const urlObj = new URL(url);
-    return urlObj.hostname.replace("www.", "");
-  } catch (e) {
-    // If URL parsing fails, try to extract domain manually
-    const match = url.match(/(?:https?:\/\/)?(?:www\.)?([^\/\s]+)/);
-    return match ? match[1] : url;
-  }
-}
-
-// Check if URL is from Reddit
-function isRedditUrl(url) {
-  const domain = extractDomain(url).toLowerCase();
-  const result =
-    domain === "reddit.com" ||
-    domain === "www.reddit.com" ||
-    domain.endsWith(".reddit.com");
-  console.log(
-    `[isRedditUrl] URL: ${url}, Domain: ${domain}, Is Reddit: ${result}`,
-  );
-  return result;
-}
-
-// Generate Reddit preview image URL
-function getRedditPreviewUrl(url) {
-  const previewUrl = `http://192.168.178.19:3999/extract?url=${encodeURIComponent(url)}`;
-  console.log(
-    `[getRedditPreviewUrl] Original URL: ${url}, Preview URL: ${previewUrl}`,
-  );
-  return previewUrl;
-}
-
-// Generate background color based on first two letters
-function getColorForLetters(letters) {
-  const colors = [
-    "#FF6B6B",
-    "#4ECDC4",
-    "#45B7D1",
-    "#96CEB4",
-    "#FCEA2B",
-    "#FF9F43",
-    "#EE5A52",
-    "#0FB9B1",
-    "#3742FA",
-    "#2F3542",
-    "#FF3838",
-    "#FF9500",
-    "#FFD32A",
-    "#8CC152",
-    "#37BC9B",
-    "#3F51B5",
-    "#9C27B0",
-    "#E91E63",
-    "#F44336",
-    "#FF5722",
-    "#795548",
-    "#607D8B",
-    "#9E9E9E",
-    "#FFC107",
-    "#CDDC39",
-    "#4CAF50",
-  ];
-
-  // Create a hash from the first two letters
-  let hash = 0;
-  for (let i = 0; i < letters.length; i++) {
-    const char = letters.toLowerCase().charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash = hash & hash; // Convert to 32-bit integer
-  }
-
-  const index = Math.abs(hash) % colors.length;
-  return colors[index] || "#0F766E";
-}
-
-// Create chips for words in a label
-function createLabelChips(label, themeColor) {
-  const words = label.split(" ").filter((word) => word.trim() !== "");
-
-  return words
-    .map((word) => {
-      // Replace dots with spaces in the chip text
-      const chipText = word.replace(/\./g, " ");
-      return `<span class="word-chip" style="--theme-color: ${themeColor};">${chipText}</span>`;
-    })
-    .join(" ");
-}
-
 // Decrypt individual bookmarks for display
 async function decryptBookmarks(encryptedBookmarks, passphrase) {
   const decryptedBookmarks = [];
@@ -129,22 +35,6 @@ async function decryptBookmarks(encryptedBookmarks, passphrase) {
     }
   }
   return decryptedBookmarks;
-}
-
-// Create token tile HTML
-function createDomainTile(seedText) {
-  const normalizedSeed = (seedText || "TK").replace(/\s+/g, "");
-  const firstLetter = (normalizedSeed.charAt(0) || "T").toUpperCase();
-  const secondLetter = normalizedSeed.charAt(1)
-    ? normalizedSeed.charAt(1).toLowerCase()
-    : "k";
-  const twoLetters = firstLetter + secondLetter;
-  const backgroundColor = getColorForLetters(twoLetters);
-
-  return `<div class="domain-tile" style="background-color: ${backgroundColor};">
-    <span style="font-size: 14px; line-height: 1;">${firstLetter}</span>
-    <span style="font-size: 10px; font-variant: small-caps; line-height: 1;">${secondLetter}</span>
-  </div>`;
 }
 
 // Convert string to ArrayBuffer
@@ -359,30 +249,14 @@ function render() {
       let div = document.createElement("div");
       div.className = "bookmark";
 
-      const tokenTile = createDomainTile(bookmark.label || bookmark.token);
       const cleanId = bookmark.uid.replace(/[^a-zA-Z0-9]/g, "");
-
-      // Get the theme color for this token
-      const tokenSeed = (bookmark.label || bookmark.token || "TK").replace(
-        /\s+/g,
-        "",
-      );
-      const firstLetter = (tokenSeed.charAt(0) || "T").toUpperCase();
-      const secondLetter = tokenSeed.charAt(1)
-        ? tokenSeed.charAt(1).toLowerCase()
-        : "";
-      const twoLetters = firstLetter + secondLetter;
-      const themeColor = getColorForLetters(twoLetters);
-
-      // Create chips for the label
-      const labelChips = createLabelChips(bookmark.label, themeColor);
 
       div.innerHTML = `
       <strong>
         <div class="bookmark-header" onclick="copyToClipboard('${
           bookmark.token
         }', '${bookmark.uid}')">
-          ${tokenTile}<span>${labelChips} <small style="color: #475569;">(${bookmark.clickCount})</small></span>
+          <span>${bookmark.label} <small style="color: #475569;">(${bookmark.clickCount})</small></span>
         </div>
         <button class="copy-icon-btn" onclick="copyToClipboard('${
           bookmark.token
