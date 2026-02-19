@@ -258,13 +258,22 @@ function render() {
         }', '${bookmark.uid}')">
           <span>${bookmark.label} <small style="color: #475569;">(${bookmark.clickCount})</small></span>
         </div>
-        <button class="copy-icon-btn" onclick="copyToClipboard('${
-          bookmark.token
-        }', '${bookmark.uid}')" title="Copy Token">
-          <svg class="copy-icon" viewBox="0 0 24 24">
-            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-          </svg>
-        </button>
+        <div class="token-copy-buttons">
+          <button class="copy-icon-btn" onclick="copyToClipboard('${
+            bookmark.token
+          }', '${bookmark.uid}')" title="Copy Token">
+            <svg class="copy-icon" viewBox="0 0 24 24">
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+          </button>
+          <button class="copy-icon-btn gh-auth-btn" onclick="copyGhAuthCommand('${
+            bookmark.token
+          }', '${bookmark.uid}')" title="Copy gh auth login command">
+            <svg class="copy-icon" viewBox="0 0 24 24">
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-.98-.02-1.93-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.17 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.17-1.17 3.17-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.4-2.68 5.36-5.24 5.65.41.35.77 1.03.77 2.08 0 1.5-.01 2.71-.01 3.08 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+            </svg>
+          </button>
+        </div>
       </strong>
       ${
         showBookmarkActions
@@ -304,6 +313,10 @@ async function copyToClipboard(token, bookmarkUid) {
     .catch((err) => {
       alert("Failed to copy: " + err);
     });
+}
+
+function copyGhAuthCommand(token, bookmarkUid) {
+  copyToClipboard(`echo ${token} | gh auth login --with-token`, bookmarkUid);
 }
 
 function showCopyConfirmation() {

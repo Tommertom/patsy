@@ -183,6 +183,12 @@ button {
   flex: 1;
 }
 
+.token-copy-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .copy-icon-btn {
   background: #0E9F6E;
   border: none;
@@ -199,6 +205,24 @@ button {
   box-shadow: 0 2px 6px rgba(14, 159, 110, 0.3);
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
+}
+
+.bookmark .token-copy-buttons .copy-icon-btn {
+  width: 36px;
+}
+
+.gh-auth-btn {
+  background: #0F172A;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.3);
+}
+
+.gh-auth-btn:hover {
+  background: #020617;
+  box-shadow: 0 4px 10px rgba(2, 6, 23, 0.4);
+}
+
+.gh-auth-btn:active {
+  box-shadow: 0 1px 4px rgba(2, 6, 23, 0.3);
 }
 
 .copy-icon-btn:hover {
