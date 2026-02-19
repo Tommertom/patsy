@@ -176,7 +176,7 @@ button {
     width: 100%;
   }
 
-  .bookmark strong .token-copy-buttons .copy-icon-btn {
+  .bookmark .token-copy-buttons .copy-icon-btn {
     width: 100%;
     margin-left: 0;
   }
@@ -212,7 +212,7 @@ button {
   flex-shrink: 0;
 }
 
-.bookmark .token-copy-buttons .copy-icon-btn {
+.token-copy-buttons .copy-icon-btn {
   width: 36px;
 }
 
