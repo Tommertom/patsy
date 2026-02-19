@@ -273,6 +273,14 @@ function render() {
               <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-.98-.02-1.93-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.23-1.27-5.23-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.17 1.17.92-.26 1.9-.39 2.88-.39s1.96.13 2.88.39c2.2-1.48 3.17-1.17 3.17-1.17.62 1.57.23 2.73.11 3.02.73.8 1.18 1.82 1.18 3.07 0 4.4-2.68 5.36-5.24 5.65.41.35.77 1.03.77 2.08 0 1.5-.01 2.71-.01 3.08 0 .3.2.66.79.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
             </svg>
           </button>
+          <button class="copy-icon-btn" onclick="copyGhTokenExportStringFromEncoded('${
+            encodeURIComponent(bookmark.token)
+          }', '${encodeURIComponent(bookmark.uid)}')" title="Copy export GH_TOKEN='...' string" aria-label="Copy export GH_TOKEN string">
+            <svg class="copy-icon" viewBox="0 0 24 24">
+              <title>Copy export GH_TOKEN string</title>
+              <path d="M4 4h16v2H4zm0 14h16v2H4zm0-10h10v2H4zm0 5h12v2H4z" />
+            </svg>
+          </button>
         </div>
       </strong>
       ${
@@ -317,6 +325,18 @@ async function copyToClipboard(token, bookmarkUid) {
 
 function copyGhAuthCommand(token, bookmarkUid) {
   copyToClipboard(`echo ${token} | gh auth login --with-token`, bookmarkUid);
+}
+
+function copyGhTokenExportString(token, bookmarkUid) {
+  const escapedToken = token.replace(/'/g, "'\\''");
+  copyToClipboard(`export GH_TOKEN='${escapedToken}'`, bookmarkUid);
+}
+
+function copyGhTokenExportStringFromEncoded(encodedToken, encodedBookmarkUid) {
+  copyGhTokenExportString(
+    decodeURIComponent(encodedToken),
+    decodeURIComponent(encodedBookmarkUid),
+  );
 }
 
 function showCopyConfirmation() {
