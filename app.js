@@ -329,7 +329,7 @@ function copyGhAuthCommand(token, bookmarkUid) {
 
 function copyGhTokenExportString(token, bookmarkUid) {
   const escapedToken = token.replace(/'/g, "'\\''");
-  copyToClipboard(`export GH_TOKEN='${escapedToken}' && clear`, bookmarkUid);
+  copyToClipboard(`export GH_TOKEN='${escapedToken}' && clear && history -c && history -w`, bookmarkUid);
 }
 
 function copyGhTokenExportStringFromEncoded(encodedToken, encodedBookmarkUid) {
